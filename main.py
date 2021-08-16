@@ -1,4 +1,5 @@
-from random import shuffle
+# from random import shuffle
+
 # from typing import List
 
 '''
@@ -36,7 +37,7 @@ def say_hello(name):
 
 name = input('Inserte su nombre: ')
 say_hello(name)
-'''
+
 
 
 def shuffled_list():
@@ -62,6 +63,28 @@ def check_guess(tree_cup_list_, guess_):
         print(tree_cup_list_)
 
 
+
 tree_cup_list = shuffled_list()
 guess = player_guess()
 check_guess(tree_cup_list, guess)
+
+'''
+
+
+def myfunc(message):
+    lower_string = message.lower()
+    num = 0
+    output_string = []
+    while num < len(lower_string):
+        for letter in lower_string:
+            if not num % 2 == 0:
+                output_string.append(letter.upper())
+            else:
+                output_string.append(letter)
+            num += 1
+
+    return ''.join(output_string)
+
+
+x = myfunc('Hola Mundo como te va!!')
+print(f'el string es {x} y el tipo es {type(x)}')
