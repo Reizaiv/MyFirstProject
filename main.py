@@ -86,5 +86,20 @@ def myfunc(message):
     return ''.join(output_string)
 
 
+def master_yoda(text):
+    # output_text = []
+    text = text.split(' ')
+    index = list(enumerate(text))
+    index.sort(reverse=True)
+    text = [phrase for i, phrase in index]
+    # for i, phrase in index:
+    # output_text.append(phrase)
+    return ' '.join(text)
+
+
+print(master_yoda('I am home'))
+
+'''
 x = myfunc('Hola Mundo como te va!!')
 print(f'el string es {x} y el tipo es {type(x)}')
+'''
