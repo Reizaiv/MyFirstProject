@@ -70,7 +70,7 @@ check_guess(tree_cup_list, guess)
 
 '''
 
-
+'''
 def myfunc(message):
     lower_string = message.lower()
     num = 0
@@ -98,8 +98,35 @@ def master_yoda(text):
 
 
 print(master_yoda('I am home'))
+'''
 
 '''
 x = myfunc('Hola Mundo como te va!!')
 print(f'el string es {x} y el tipo es {type(x)}')
 '''
+
+
+def count_primes(num):
+    count = 0
+
+    if num == 0 or num == 1:
+        return 0
+    else:
+        for a in range(2, num + 1):
+            primo = True
+            i = 2
+            while i < a:
+                if a % i == 0:
+                    print(f'{a} No es un numero primo')
+                    primo = False
+                    break
+                else:
+                    i += 1
+
+            if primo:
+                print(f'{a} Es un numero primo')
+                count += 1
+        return count
+
+
+print(count_primes(100))
