@@ -20,12 +20,20 @@ def players_choice():
     return player1_choice, player2_choice
 
 
+def display_board(board):
+    print('     |     |    ')
+    print(f'  {board[6]}  |  {board[7]}  |  {board[8]} ')
+    print('-----|-----|----')
+    print(f'  {board[3]}  |  {board[4]}  |  {board[5]} ')
+    print('-----|-----|----')
+    print(f'  {board[0]}  |  {board[1]}  |  {board[2]} ')
+    print('     |     |    ')
+
+
 def player_input():
     pass
 
 
-def display_board():
-    pass
-
-
 print(players_choice())
+board_test = ['O', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O']
+display_board(board_test)
