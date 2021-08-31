@@ -32,30 +32,42 @@ def player_turn(player1, player2):
         print(f'Jugador {player2}, inicia.')
         marker = player2
 
-    initial_board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+    display_board()
 
-    display_board(initial_board, marker)
     return marker
 
 
-def display_board(board, marker):
+def display_board(board=[]):
+    print_board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+    i = 0
+    if 'X' in board or 'O' in board:
+        for value in board:
+            if value == 'X' or value == 'O':
+                print_board[i+1] = value
+            else:
+                pass
+            i += 1
+    else:
+        pass
     # board[option-1] = player_turn
     # print(f'Jugador {marker}, su turno...')
     print('     |     |    ')
-    print(f'  {board[6]}  |  {board[7]}  |  {board[8]} ')
+    print(f'  {print_board[6]}  |  {print_board[7]}  |  {print_board[8]} ')
     print('-----|-----|----')
-    print(f'  {board[3]}  |  {board[4]}  |  {board[5]} ')
+    print(f'  {print_board[3]}  |  {print_board[4]}  |  {print_board[5]} ')
     print('-----|-----|----')
-    print(f'  {board[0]}  |  {board[1]}  |  {board[2]} ')
+    print(f'  {print_board[0]}  |  {print_board[1]}  |  {print_board[2]} ')
     print('     |     |    ')
 
     return board
 
 
-def place_holder(marker, position):
-    board = []
+def place_holder(board, marker, position):
+    
+    board.append(marker)
+    board.append(position)
 
-    return board, marker
+    return board
 
 
 def player_input(marker):
@@ -73,13 +85,17 @@ def player_input(marker):
         else:
             print('Opcion no valida, por favor seleccione un numero entre 1-9.')
         # else:
-            # num = int(option)
+        # num = int(option)
     return marker, num
 
 
 player1, player2 = players_choice()
-player_turn(player1, player2)
-
+figura = player_turn(player1, player2)
+figura, posicion = player_input(figura)
+tablero = place_holder(figura, posicion)
+display_board(tablero)
+tablero = place_holder('O',5)
+display_board(tablero)
 # print(f'{player1}, {player2}')
 
 # num = player_input()
