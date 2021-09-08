@@ -107,7 +107,7 @@ print(f'el string es {x} y el tipo es {type(x)}')
 
 
 def my_func():
-    print('Hola, estoy en otro lado')
+    print('Hola, estoy en Curse_Lectures_excersices')
 
 
 def count_primes(num):

@@ -1,9 +1,22 @@
 import random
+import anotherpackage
+
 from Course_lectures_exercises import my_func
+# from MyMainPackage.some_main_script import *
+# from MyMainPackage.SubPackage.mysubscript import *
+from MyMainPackage import some_main_script
+from MyMainPackage.SubPackage import mysubscript
+from anotherpackage import otrotest
+
+some_main_script.main_report()
+some_main_script.main_report2()
+mysubscript.sub_report()
+my_func()
+
 
 def players_choice():
     char = ''
-    player_choice, player2_choice = '', ' '
+    player1_choice, player2_choice = '', ' '
     i = int(random.randint(0, 1))
 
     while char != 'X' and char != 'O':
@@ -135,7 +148,6 @@ def keep_playing():
     return True
 
 
-my_func()
 
 keep = True
 while keep:
