@@ -1,5 +1,5 @@
 import random
-
+from Course_lectures_exercises import my_func
 
 def players_choice():
     char = ''
@@ -134,6 +134,8 @@ def keep_playing():
             pass
     return True
 
+
+my_func()
 
 keep = True
 while keep:
