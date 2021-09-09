@@ -1,17 +1,6 @@
 import random
-import anotherpackage
 
-from Course_lectures_exercises import my_func
-# from MyMainPackage.some_main_script import *
-# from MyMainPackage.SubPackage.mysubscript import *
-from MyMainPackage import some_main_script
-from MyMainPackage.SubPackage import mysubscript
-from anotherpackage import otrotest
 
-some_main_script.main_report()
-some_main_script.main_report2()
-mysubscript.sub_report()
-my_func()
 
 
 def players_choice():
