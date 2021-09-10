@@ -1,5 +1,8 @@
 import random
 from Course_lectures_exercises import my_func
+from MyMainPackage.SubPackage import mysubscript
+
+mysubscript.sub_report()
 
 def players_choice():
     char = ''
