@@ -1,19 +1,31 @@
+"""
+
+Este programa es un juego de gato.
+
+"""
+
 import random
 from Course_lectures_exercises import my_func
 from MyMainPackage.SubPackage import mysubscript
 
 mysubscript.sub_report()
 
+
 def players_choice():
+    """
+    Definicion de la funcion
+    :return:
+    """
+
     char = ''
-    player_choice, player2_choice = '', ' '
+    player1_choice, player2_choice = '', ' '
     i = int(random.randint(0, 1))
 
-    while char != 'X' and char != 'O':
+    while char not in ('X', 'O'):
         # os.system('cls')
         player1_choice = input("\nSeleccione con que figura desea jugar 'X' o 'O': ")
         char = player1_choice.upper()
-        if char != 'X' and char != 'O':
+        if char not in ('X', 'O'):
             # os.system('cls')
             print('Opcion no valida, intente de nuevo.')
         else:
@@ -31,19 +43,28 @@ def players_choice():
         print(f'Jugador {player2_choice}, inicia.')
         marker = player2_choice
 
-    display_board()
+    display_board([])
 
     return marker
 
 
 def player_turn(player):
+    """
+        Definicion de la funcion
+        :return:
+        """
+
     if player == 'X':
         return 'O'
-    else:
-        return 'X'
+
+    return 'X'
 
 
-def display_board(board=[]):
+def display_board(board):
+    """
+        Definicion de la funcion
+        :return:
+        """
     print_board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
     if 'X' in board or 'O' in board:
         for index in range(0, len(board), 2):
@@ -66,6 +87,11 @@ def display_board(board=[]):
 
 
 def place_holder(marker, position, board):
+    """
+        Definicion de la funcion
+        :return:
+    """
+
     if position in board:
         print('Casilla ya ocupada, vuelva a seleccionar...')
         marker, num = player_input(marker)
@@ -78,8 +104,13 @@ def place_holder(marker, position, board):
 
 
 def player_input(marker):
-    num = ''
+    """
+        Definicion de la funcion
+        :return:
+    """
+
     print(f'Jugador {marker}, su turno...')
+    num = 0
     while num not in range(1, 10):
         option = input('Seleccione una celda de 1-9: ')
         # print(option.isdigit())
@@ -97,6 +128,11 @@ def player_input(marker):
 
 
 def check_victory(board, marker):
+    """
+            Definicion de la funcion
+            :return:
+    """
+
     if board[0] == board[1] == board[2] == marker:
         print(f'Felicidades jugador {marker}, usted ha ganado!')
     elif board[3] == board[4] == board[5] == marker:
@@ -122,13 +158,17 @@ def check_victory(board, marker):
 
 
 def keep_playing():
+    """
+        Definicion de la funcion
+        :return:
+    """
     char = ''
 
-    while char != 'Y' and char != 'N':
+    while char not in ('X', 'O'):
         # os.system('cls')
         opcion = input("\nDesea seguir jugando? Y/N: ")
         char = opcion.upper()
-        if char != 'Y' and char != 'N':
+        if char not in ('Y', 'N'):
             # os.system('cls')
             print('Opcion no valida, intente de nuevo.')
         elif char == 'N':
@@ -140,19 +180,19 @@ def keep_playing():
 
 my_func()
 
-keep = True
-while keep:
-    marcador = players_choice()
-    tablero = []
-    ganador = False
-    while not ganador:
-        figura, posicion = player_input(marcador)
-        tablero = place_holder(figura, posicion, tablero)
-        board = display_board(tablero)
-        ganador = check_victory(board, figura)
-        marcador = player_turn(marcador)
+KEEP = True
+while KEEP:
+    MARCADOR = players_choice()
+    TABLERO = []
+    GANADOR = False
+    while not GANADOR:
+        FIGURA, posicion = player_input(MARCADOR)
+        TABLERO = place_holder(FIGURA, posicion, TABLERO)
+        BOARD = display_board(TABLERO)
+        GANADOR = check_victory(BOARD, FIGURA)
+        MARCADOR = player_turn(MARCADOR)
 
-    keep = keep_playing()
+    KEEP = keep_playing()
 
 
 '''
