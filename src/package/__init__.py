@@ -1,0 +1,1 @@
+print(f'Iniciado {__name__}')
