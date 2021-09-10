@@ -1,7 +1,18 @@
 import random
 
+# /// Modulo localizado en la Raiz ///
+# Importacion de el modulo completo. Notar la notacion para hacer la llamada
+import mymodule as mm
+# Importaion de una funcion especifica
+from mymodule import my_func
+# Importacion desde un paquete
+from package import package_module as pm
+from package.subpackage import subpackage_module
 
-
+my_func()
+mm.my_func2()
+pm.main_report2()
+subpackage_module.sub_report()
 
 def players_choice():
     char = ''
