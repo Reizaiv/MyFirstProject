@@ -171,3 +171,24 @@ def keep_playing():
         else:
             pass
     return True
+
+
+'''
+## PROGRAMA ##
+import TicTacToe as ttt
+
+
+KEEP = True
+while KEEP:
+    MARCADOR = ttt.players_choice()
+    TABLERO = []
+    GANADOR = False
+    while not GANADOR:
+        FIGURA, POSICION = ttt.player_input(MARCADOR)
+        TABLERO = ttt.place_holder(FIGURA, POSICION, TABLERO)
+        BOARD = ttt.display_board(TABLERO)
+        GANADOR = ttt.check_victory(BOARD, FIGURA)
+        MARCADOR = ttt.player_turn(MARCADOR)
+
+    KEEP = ttt.keep_playing()
+'''

@@ -3,21 +3,30 @@
 Este programa es la plantilla principal de ejecucion.
 
 """
-import TicTacToe as ttt
-from MyMainPackage.SubPackage import mysubscript
-mysubscript.sub_report()
+
+from WarGame import wargame as wg
 
 
-KEEP = True
-while KEEP:
-    MARCADOR = ttt.players_choice()
-    TABLERO = []
-    GANADOR = False
-    while not GANADOR:
-        FIGURA, POSICION = ttt.player_input(MARCADOR)
-        TABLERO = ttt.place_holder(FIGURA, POSICION, TABLERO)
-        BOARD = ttt.display_board(TABLERO)
-        GANADOR = ttt.check_victory(BOARD, FIGURA)
-        MARCADOR = ttt.player_turn(MARCADOR)
+new_deck = wg.Deck()
 
-    KEEP = ttt.keep_playing()
+
+print(new_deck)
+print(new_deck.all_cards)
+
+for i in range(0, len(new_deck.all_cards)):
+    print(new_deck.all_cards[i])
+
+new_deck.shuffle()
+
+for i in range(0, len(new_deck.all_cards)):
+    print(new_deck.all_cards[i])
+
+my_card = new_deck.pop_card()
+print(len(new_deck.all_cards))
+
+
+new_player = wg.Player('Javier')
+print(new_player)
+
+new_player.add_card(my_card)
+print(new_player)
