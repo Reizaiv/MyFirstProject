@@ -3,30 +3,41 @@
 Este programa es la plantilla principal de ejecucion.
 
 """
-
 from WarGame import wargame as wg
 
+# GAME SETUP
+
+player_one = wg.Player("Player One")
+player_two = wg.Player("Player Two")
 
 new_deck = wg.Deck()
-
-
-print(new_deck)
-print(new_deck.all_cards)
-
-for i in range(0, len(new_deck.all_cards)):
-    print(new_deck.all_cards[i])
-
 new_deck.shuffle()
 
-for i in range(0, len(new_deck.all_cards)):
-    print(new_deck.all_cards[i])
+for x in range(26):
+    player_one.add_card(new_deck.pop_card())
+    player_two.add_card(new_deck.pop_card())
 
-my_card = new_deck.pop_card()
-print(len(new_deck.all_cards))
+round_num = 0
+game_on = True
 
+while game_on:
+    round_num += 1
+    print(f'Round {round_num}')
 
-new_player = wg.Player('Javier')
-print(new_player)
+    if len(player_one.all_cards) == 0:
+        print(f'Player: {player_one.name}, is out of cards! Player: {player_two.name} wins!')
+        game_on = False
+        break
 
-new_player.add_card(my_card)
-print(new_player)
+    if len(player_two.all_cards) == 0:
+        print(f'Player: {player_two.name}, is out of cards! Player: {player_one.name} wins!')
+        game_on = False
+        break
+
+    #Start a new round
+    player_one_cards = []
+    player_one_cards.append(player_one.throw_card())
+
+    player_two_cards = []
+    player_two_cards.append(player_two.throw_card())
+
